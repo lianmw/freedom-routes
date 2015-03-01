@@ -76,9 +76,10 @@ cp routes-down.sh /etc/ppp/ip-down.d/ip-down
 
 ## 任何人都可以帮助这个项目
 
-- 请保持低调, 不要推广本项目, 自己用的好就可以了, 不要点击右上角的star按钮.
+- 请保持低调, 不要推广本项目, 自己用的好就可以了, 不要点击右上角的star按钮
 - 提交Bug/建议
 - 帮助作者提高文档
+- 欢迎其他开发者Fork和发送Pull-Request
 - 欢迎其他开发者申请Collaborator权限
 
 感谢所有[贡献者](https://github.com/SaberSalv/freedom-routes/contributors). </br>
