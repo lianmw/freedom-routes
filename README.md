@@ -13,7 +13,7 @@ freedom-routes, chnroutes的改进版本, 大幅提升VPN浏览国内网页速�
 生成一个可以运行的脚本, 当VPN运行的时候, 自动添加国内的IP地址到系统`路由表`, 用`直接连接`方式访问国内的网站, 用`VPN`方式访问国外的网站, 从而提升网页浏览速度. (例如: 使用前ping baidu.com是300ms延迟, 使用后可以减少到30ms)
 
 ## 项目一览
-命令行: [Go版本 - 本项目](/#), [Python版本](https://github.com/fivesheep/chnroutes)
+命令行: [Go版本 - 本项目](https://github.com/SaberSalv/freedom-routes), [Python版本](https://github.com/fivesheep/chnroutes)
 
 图形化应用程序: [Windows](https://github.com/cqjjjzr/freedom-routes#windows%E7%89%88%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F)
 
