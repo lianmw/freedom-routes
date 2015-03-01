@@ -70,19 +70,19 @@ cp routes-down.sh /etc/ppp/ip-down.d/ip-down
 
 # 本地版本
 
-查看[本地版本使用说明](https://github.com/SaberSalv/freedom-routes/blob/master/docs/local.md), 不过不推荐使用, 用网络版本更方便.
+查看[本地版本使用说明](https://github.com/SaberSalv/freedom-routes/blob/master/docs/local.md)
 
 # 开发
 
 ## 任何人都可以帮助这个项目
 
-- 请保持低调, 不要推广本项目, 自己用的可以就好了, 不要点击右上角的star按钮.
+- 请保持低调, 不要推广本项目, 自己用的好就可以了, 不要点击右上角的star按钮.
 - 提交Bug/建议
 - 帮助作者提高文档
+- 欢迎其他开发者申请Collaborator权限
 
 感谢所有[贡献者](https://github.com/SaberSalv/freedom-routes/contributors). </br>
 感谢原来的[chnroutes](https://github.com/fivesheep/chnroutes)作者.
-
 
 ## 编译
 
