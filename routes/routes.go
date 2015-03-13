@@ -150,7 +150,7 @@ func FetchLocalIps() (ips []Ip) {
 }
 
 // Convert CIDR to Mask.
-// 
+//
 // Example:
 //
 //   cidr2mask(24)       #-> "255.255.255.0"
