@@ -52,7 +52,7 @@ GLOBAL OPTIONS:
   }
 
   app.Action = func(c *cli.Context) {
-    if (len(c.Args()) > 0)  {
+    if (c.Args().Present())  {
 		  genRoutes(c.Args(), c.String("output"))
     } else {
       cli.ShowAppHelp(c)
