@@ -1,23 +1,13 @@
 package main
 
 import (
-	"github.com/SaberSalv/freedom-routes/routes"
-	"fmt"
-	"github.com/ogier/pflag"
-	"path/filepath"
 	"os"
+	"path/filepath"
+  "github.com/codegangsta/cli"
+	"github.com/SaberSalv/freedom-routes/routes"
 )
 
 const VERSION = "1.1.0"
-
-var USAGE = `
-$ freedom-routes [options] <template ..>
-
-OPTIONS:
-	-o, --output="."                 # output directory
-	-h, --help
-	--version
-`
 
 func genRoutes(templateNames []string, outputDir string) {
 	ips := routes.FetchIps()
@@ -35,20 +25,40 @@ func genRoutes(templateNames []string, outputDir string) {
 }
 
 func main() {
-	pflag.Usage = func() {
-		fmt.Fprintf(os.Stderr, USAGE)
-	}
+  cli.AppHelpTemplate = `{{.Name}} v{{.Version}} - {{.Usage}}
 
-	var output = pflag.StringP("output", "o", ".", "output directory")
-	var version = pflag.BoolP("version", "", false, "version")
-	pflag.Parse()
+USAGE:
+   {{.Name}} {{if .Flags}}[options] {{end}}<template ..>
 
-	if *version {
-		fmt.Println(VERSION)
-	} else if pflag.NArg() > 0 {
-		genRoutes(pflag.Args(), *output)
-	} else {
-		routes.PrintTemplatesPath()
-		pflag.Usage()
-	}
+COMMANDS:
+   {{range .Commands}}{{.Name}}{{with .ShortName}}, {{.}}{{end}}{{ "\t" }}{{.Usage}}
+   {{end}}{{if .Flags}}
+GLOBAL OPTIONS:
+   {{range .Flags}}{{.}}
+   {{end}}{{end}}
+`
+
+  app := cli.NewApp()
+  app.Name = "freedom-routes"
+  app.Version = VERSION
+  app.Usage = "generate routes-up.sh and route-down.sh"
+
+  app.Flags = []cli.Flag {
+    cli.StringFlag{
+      Name: "output, o",
+      Value: ".",
+      Usage: "output directory",
+    },
+  }
+
+  app.Action = func(c *cli.Context) {
+    if (len(c.Args()) > 0)  {
+		  genRoutes(c.Args(), c.String("output"))
+    } else {
+      cli.ShowAppHelp(c)
+		  routes.PrintTemplatesPath()
+    }
+  }
+
+  app.Run(os.Args)
 }
