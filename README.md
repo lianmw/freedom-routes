@@ -1,14 +1,7 @@
 freedom-routes, chnroutes的改进版本, 大幅提升VPN浏览国内网页速度.
 ================================================================
 
-|                |                                                             |
-|----------------|------------------------------------------------------       |
-| 主页:          | https://github.com/SaberSalv/freedom-routes        |
-| 作者:	         | Saber                                            |
-| 版权:          | MIT-LICENSE                                                |
-| 提交Bug:       | https://github.com/SaberSalv/freedom-routes/issues   |
-| API文档        | http://godoc.org/github.com/SaberSalv/freedom-routes |
-| 支持平台:      | Linux, Mac OS X, Windows, OpenWRT, DD-WRT, ASUSWRT   |
+支持平台: Linux, Mac OS X, Windows, OpenWRT, DD-WRT, ASUSWRT
 
 生成一个可以运行的脚本, 当VPN运行的时候, 自动添加国内的IP地址到系统`路由表`, 用`直接连接`方式访问国内的网站, 用`VPN`方式访问国外的网站, 从而提升网页浏览速度. (例如: 使用前ping baidu.com是300ms延迟, 使用后可以减少到30ms)
 
@@ -93,15 +86,3 @@ $ sed -i '/const ASSETS_MODE/s/.*/const ASSETS_MODE = "runtime"/' routes/routes.
 $ go build -o output/freedom-routes
 $ cp -r routes/templates output
 ```
-
-## 版权
-
-(the MIT License)
-
-Copyright (c) 2013-2015 Saber
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
