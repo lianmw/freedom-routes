@@ -110,7 +110,7 @@ case $1 in
 			platform=${release%/*}; arch=${release#*/}; os=${OS_MAP[$platform]-$platform}
 			assets_dir=${DIR_MAP[$platform]-$o_assets_dir}
 			# fix linux/amd64 build error
-			[[ $release == "linux/amd64" ]] && GOROOT="" || GOROOT="/home/guten/dev/src/go/go"
+			[[ $release == "linux/amd64" ]] && GOROOT="" || GOROOT="$HOME/dev/src/go/go"
 			dist
 			package
 		done
@@ -125,7 +125,7 @@ case $1 in
 		upload $*
 		;;
 	* )
-		GOROOT="/home/guten/dev/src/go/go"
+		GOROOT="$HOME/dev/src/go/go"
 		platform=${1%/*}; arch=${1#*/}; os=${OS_MAP[$platform]-$platform}
 		dist
 		[ $o_package == true ] && package
