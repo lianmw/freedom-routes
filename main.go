@@ -1,10 +1,10 @@
 package main
 
 import (
+	"github.com/codegangsta/cli"
+	"github.com/sabersalv/freedom-routes/routes"
 	"os"
 	"path/filepath"
-  "github.com/codegangsta/cli"
-	"github.com/SaberSalv/freedom-routes/routes"
 )
 
 const VERSION = "1.1.0"
@@ -25,7 +25,7 @@ func genRoutes(templateNames []string, outputDir string) {
 }
 
 func main() {
-  cli.AppHelpTemplate = `{{.Name}} v{{.Version}} - {{.Usage}}
+	cli.AppHelpTemplate = `{{.Name}} v{{.Version}} - {{.Usage}}
 
 USAGE:
    {{.Name}} {{if .Flags}}[options] {{end}}<template ..>
@@ -38,27 +38,27 @@ GLOBAL OPTIONS:
    {{end}}{{end}}
 `
 
-  app := cli.NewApp()
-  app.Name = "freedom-routes"
-  app.Version = VERSION
-  app.Usage = "generate routes-up.sh and route-down.sh"
+	app := cli.NewApp()
+	app.Name = "freedom-routes"
+	app.Version = VERSION
+	app.Usage = "generate routes-up.sh and route-down.sh"
 
-  app.Flags = []cli.Flag {
-    cli.StringFlag{
-      Name: "output, o",
-      Value: ".",
-      Usage: "output directory",
-    },
-  }
+	app.Flags = []cli.Flag{
+		cli.StringFlag{
+			Name:  "output, o",
+			Value: ".",
+			Usage: "output directory",
+		},
+	}
 
-  app.Action = func(c *cli.Context) {
-    if (c.Args().Present())  {
-		  genRoutes(c.Args(), c.String("output"))
-    } else {
-      cli.ShowAppHelp(c)
-		  routes.PrintTemplatesPath()
-    }
-  }
+	app.Action = func(c *cli.Context) {
+		if c.Args().Present() {
+			genRoutes(c.Args(), c.String("output"))
+		} else {
+			cli.ShowAppHelp(c)
+			routes.PrintTemplatesPath()
+		}
+	}
 
-  app.Run(os.Args)
+	app.Run(os.Args)
 }
