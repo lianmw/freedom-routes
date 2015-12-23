@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"bitbucket.org/kardianos/osext"
+	"github.com/kardianos/osext"
 	"go/build"
 )
 
