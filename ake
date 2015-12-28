@@ -29,7 +29,7 @@ publish() {
       rm ../$name.zip 2>/dev/null
       zip -r ../$name.zip *
     fi
-    cd -
+    cd $OLDPWD
   done
 
   git add *.tar.gz *.zip
