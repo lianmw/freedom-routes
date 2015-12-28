@@ -18,7 +18,8 @@
 
 # 网络版本
 
-## 下载
+下载
+----
 
 每24小时更新一次.
 
@@ -28,11 +29,12 @@
 - **Android**: [android.zip](https://raw.githubusercontent.com/sabersalv/freedom-routes/dist/android.zip)
 - **RouterOS**: [routeros.zip](https://raw.githubusercontent.com/sabersalv/freedom-routes/dist/routeros.zip)
 
-## 使用方法
+使用方法
+--------
 
 这些ip地址库并不是固定不变的, 尽管变化不大, 但还是建议每隔两三个月更新一次.
 
-**手动运行**
+(手动运行)
 
 ```
 启用
@@ -44,7 +46,7 @@
 
 Windows需要右键routes-up.bat -> 已管理员身份运行.
 
-**OpenVPN**
+(OpenVPN)
 
 ```
 # cp them to /etc/openvpn
@@ -55,16 +57,17 @@ Windows需要右键routes-up.bat -> 已管理员身份运行.
   down ./routes-down.sh
 ```
 
-**PPTP**
+(PPTP)
 
 ```
 cp routes-up.sh /etc/ppp/ip-pre-up
 cp routes-down.sh /etc/ppp/ip-down.d/ip-down
 ```
 
-## 自动更新
+自动更新
+--------
 
-**Linux**
+(Linux)
 
 ```
 # curl https://raw.githubusercontent.com/sabersalv/freedom-routes/master/misc/linux/freedom-routes.service -o /etc/systemd/system/freedom-routes.service
@@ -73,7 +76,7 @@ cp routes-down.sh /etc/ppp/ip-down.d/ip-down
 # systemctl enable freedom-routes.timer
 ```
 
-**Windows**
+(Windows)
 
 用计划任务
 

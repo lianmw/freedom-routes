@@ -43,16 +43,3 @@ $ git push -u origin dist
 # systemctl start freedom-routes.timer
 # systemctl enable freedom-routes.timer
 ```
-
-## ref
-
-```
-# /etc/cron.hourly/freedom-routes
-
-  #!/bin/bash
-
-  cd <project>
-  freedom-routes android linux mac routeros windows -o tmp
-  misc/uploader/bin/uploader upload s3 tmp/*
-```
-

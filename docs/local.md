@@ -26,13 +26,3 @@ $ freedom-routes [options] <template>
 
 	# edit /etc/freedom-routes
 		70.33.217.1/32
-
-**自动更新**
-
-(Linux)
-
-	$ create /etc/cron.weekly/freedom-routes with 0755 mode
-
-		#!/bin/bash
-
-		freedom-routes linux -o /etc/openvpn
