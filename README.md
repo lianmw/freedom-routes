@@ -73,7 +73,9 @@ cp routes-down.sh /etc/ppp/ip-down.d/ip-down
 # systemctl enable freedom-routes.timer
 ```
 
+**Windows**
 
+用计划任务
 
 # 本地版本
 
