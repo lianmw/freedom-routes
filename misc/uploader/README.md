@@ -16,15 +16,3 @@ $ bin/uploader upload s3 *.sh
 ## 新浪云存储
 
 [安装scs-cli-tool](http://open.sinastorage.com/?c=doc&a=sdk#scs-cli-tool)
-
-## ref
-
-```
-# /etc/cron.hourly/freedom-routes
-
-  #!/bin/bash
-
-  cd <project>
-  freedom-routes android linux mac routeros windows -o tmp
-  misc/uploader/bin/uploader upload s3 tmp/*
-```

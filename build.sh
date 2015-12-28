@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Zeus
-#
-#  ./build.sh release
-#
+# ./build.sh                                 # build linux/amd64 binary
+# ./build.sh -d /usr/share/freedom-routes    # build linux binary
+# ./build.sh linux/amd64                     # build linux/amd64 binary
+# ./build.sh release                         # build $RELEASEs with user complied go and upload the package to s3.
 
 # Build binary for distribution.
 #
@@ -13,10 +13,6 @@
 #     -d <assets_dir>
 #     -p              # packaging the binary
 #
-# Example:
-#
-#   ./build.sh -d /usr/share/freedom-routes    # build with system go
-#   ./build.sh release                         # build $RELEASEs with user complied go and upload the package to s3.
 
 EXTRA_FILES="routes/templates freedom-routes.etc README.md"
 RELEASE="linux/amd64 linux/386 homebrew/amd64 homebrew/386 windows/amd64 windows/386"
@@ -44,8 +40,8 @@ function dist {
 	mkdir -p $output
 
 	cp -r $EXTRA_FILES $output
-	if [[ -d "misc/$platform" ]]; then
-		cp -r misc/$platform/* $output
+	if [[ -d "assets/$platform" ]]; then
+		cp -r assets/$platform/* $output
 	fi
 
 	build

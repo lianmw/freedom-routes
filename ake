@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+# Usage
+#
+# ./ake deploy
+# ./ake publish
+
+NAME="freedom-routes"
+HOST="box"
+RELEASE="android linux mac routeros windows"
+
+deploy() {
+  ./build.sh -d /app/freedom-routes
+  ssh $HOST "mkdir -p /app/$NAME"
+  cp ake dist/linux.amd64
+  scp -r dist/linux.amd64/* $HOST:/app/$NAME
+}
+
+publish() {
+  cd /app/freedom-routes/dist
+
+  freedom-routes $RELEASE
+
+  for name in $RELEASE; do
+    cd $name
+    if [[ $name == "linux" ]]; then
+      tar zcf ../$name.tar.gz *
+    else
+      zip -r ../$name.zip *
+    fi
+    cd -
+  done
+
+  git add *.tar.gz *.zip
+  git commit -m "Updated at $(date)"
+  git push
+}
+
+case "$1" in
+  deploy ) deploy ;;
+  publish ) publish ;;
+esac
