@@ -1,2 +1,2 @@
-{{range $i, $ip := .Ips}}add {{$ip.Ip}} mask {{$ip.Mask}} default METRIC default IF default
+{{range $i, $ip := .Ips}}add -p {{$ip.Ip}} mask {{$ip.Mask}} default METRIC default IF default
 {{end}}
